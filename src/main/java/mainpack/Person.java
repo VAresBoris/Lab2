@@ -46,14 +46,6 @@ public abstract class Person {
         this.department = department;
     }
 
-
-    public void print() {
-        //This is {name}. {He/she} {verb} at {department}.
-        System.out.println("This is " + name + "." + " " + sex.getPronoun() + " " + verb +
-                " at " + department + ".");
-
-    }
-
     public enum Sex {
         Male("He", "His"),
         Female("She", "Her");
@@ -75,6 +67,15 @@ public abstract class Person {
             return pronounGen;
         }
     }
+
+
+    public void print() {
+        //This is {name}. {He/she} {verb} at {department}.
+        System.out.println("This is " + name + "." + " " + sex.getPronoun() + " " + verb +
+                " at " + department + ".");
+
+    }
+
 
     public static void printAll(Person[] persons) {
         for (Person person : persons) {
