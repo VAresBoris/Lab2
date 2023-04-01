@@ -1,9 +1,32 @@
 package mainpack2;
 
-public enum Scale{
-    Width,
-    Height;
+public enum Scale {
 
-    
+    private int width;
+    private int height;
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    Scale(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
 }
+
+
+
 

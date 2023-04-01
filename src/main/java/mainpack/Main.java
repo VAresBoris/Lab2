@@ -16,6 +16,6 @@ public class Main {
               new Student.PhDStudent("Ronald Correa", Person.Sex.Male, "Copmputer science",
                       "Design of a functional programming language.")
         };
-
+        Person.printAll(persons);
     }
 }

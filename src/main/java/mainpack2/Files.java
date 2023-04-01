@@ -45,16 +45,6 @@ public class Files extends AbstractFiles {
             super(name, size, form);
             this.scale = scale;
         }
-
-        public Scale getScale() {
-            return scale;
-        }
-
-        public void setScale(Scale scale) {
-            if (scale == null)
-                throw new IllegalArgumentException("Размер не должен быть пустой ссылкой");
-            this.scale = scale;
-        }
     }
 
     public static class Multimedia extends Files {
@@ -76,8 +66,11 @@ public class Files extends AbstractFiles {
         }
 
         public void setDescription(String description) {
+            if (description == null)
+                throw new IllegalArgumentException("описание не должно быть пустой ссылкой");
             this.description = description;
         }
+
 
         public void setDuration(int time) {
             if (time <= 0)
@@ -86,9 +79,27 @@ public class Files extends AbstractFiles {
         }
     }
 
+
     public static class Video extends Multimedia {
         private Scale scale;
 
+        public Video(String name, int size, String form, String description, int duration, Scale scale) {
+            super(name, size, form, description, duration);
+            this.scale = scale;
+        }
     }
+
+    private void print() {
+    }
+
+    public static void printAll(Files[] files){
+        for (Files f: files){
+            f.print();
+            System.out.println();
+        }
+    }
+
 }
+
+
 
