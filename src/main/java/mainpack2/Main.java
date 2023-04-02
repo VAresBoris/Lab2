@@ -2,7 +2,7 @@ package mainpack2;
 
 public class Main {
     public static void main(String[] args) {
-        Files[] files = new Files[]{
+        AbstractFiles[] files = new AbstractFiles[]{
         new Files.Documents("j110-lab2.pdf", 232125, "pdf", 2),
         new Files.Documents("j110-slides.pptx", 639616, "pptx", 8),
         new Files.Images("spb-map.png", 7030527, "image", new Scale(2048, 3072) ),
@@ -10,7 +10,14 @@ public class Main {
         new Files.Video("BackToTheFuture1.avi", 1470984192, "video", "Back to the future", "01:48:08", new Scale(640, 352))
        };
 
-        Files.printAll(files);
+        printAll(files);
+    }
+
+    public static void printAll(AbstractFiles[] files){
+        for (AbstractFiles f: files){
+            f.print();
+            System.out.println();
+        }
     }
 }
 

@@ -3,10 +3,12 @@ package mainpack2;
 public abstract class AbstractFiles {
     private String name;
     private int size;
+    private String form;
 
-    public AbstractFiles(String name, int size) {
+    public AbstractFiles(String name, int size, String form) {
         this.name = name;
         this.size = size;
+        this.form = form;
     }
 
     public String getName() {
@@ -28,4 +30,16 @@ public abstract class AbstractFiles {
             throw new IllegalArgumentException("Размер не должен быть меньше или равен нулю");
         this.size = size;
     }
+
+    public String getForm() {
+        return form;
+    }
+
+    public void setForm(String form) {
+        if (form == null)
+            throw new IllegalArgumentException("формат не должен быть пустой ссылкой");
+        this.form = form;
+    }
+
+    public abstract void print();
 }

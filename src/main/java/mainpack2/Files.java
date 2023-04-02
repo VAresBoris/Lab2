@@ -1,25 +1,8 @@
 package mainpack2;
 
-public class Files extends AbstractFiles {
+public class Files {
 
-    private String form;
-
-    public Files(String name, int size, String form) {
-        super(name, size);
-        this.form = form;
-    }
-
-    public String getForm() {
-        return form;
-    }
-
-    public void setForm(String form) {
-        if (form == null)
-            throw new IllegalArgumentException("формат не должен быть пустой ссылкой");
-        this.form = form;
-    }
-
-    public static class Documents extends Files {
+    public static class Documents extends AbstractFiles {
         private int page;
 
         public Documents(String name, int size, String form, int page) {
@@ -36,18 +19,28 @@ public class Files extends AbstractFiles {
                 throw new IllegalArgumentException("количество страниц не должно быть меньше или равно 0");
             this.page = page;
         }
+
+        @Override
+        public void print() {
+            System.out.println(getName() + getSize() + getForm() + getPage());
+        }
     }
 
-    public static class Images extends Files {
+    public static class Images extends AbstractFiles {
         private Scale scale;
 
         public Images(String name, int size, String form, Scale scale) {
             super(name, size, form);
             this.scale = scale;
         }
+
+        @Override
+        public void print() {
+            System.out.println(getName() + getSize() + getForm() + scale.getWidth() + scale.getHeight());
+        }
     }
 
-    public static class Multimedia extends Files {
+    public static class Multimedia extends AbstractFiles {
         private String description;
         private String duration;
 
@@ -77,6 +70,11 @@ public class Files extends AbstractFiles {
                 throw new IllegalArgumentException("Длительность не должно быть меньше или равно 0");
             this.duration = duration;
         }
+
+        @Override
+        public void print() {
+            System.out.println(getName() + getSize() + getForm() + getDescription() + getDuration());
+        }
     }
 
 
@@ -87,17 +85,13 @@ public class Files extends AbstractFiles {
             super(name, size, form, description, duration);
             this.scale = scale;
         }
-    }
 
-    private void print() {
-    }
-
-    public static void printAll(Files[] files){
-        for (Files f: files){
-            f.print();
-            System.out.println();
+        @Override
+        public void print() {
+            System.out.println(getName() + getSize() + getForm() + getDescription());
         }
     }
+
 
 }
 
