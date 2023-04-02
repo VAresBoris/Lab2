@@ -49,9 +49,9 @@ public class Files extends AbstractFiles {
 
     public static class Multimedia extends Files {
         private String description;
-        private int duration;
+        private String duration;
 
-        public Multimedia(String name, int size, String form, String description, int duration) {
+        public Multimedia(String name, int size, String form, String description, String duration) {
             super(name, size, form);
             this.description = description;
             this.duration = duration;
@@ -61,7 +61,7 @@ public class Files extends AbstractFiles {
             return description;
         }
 
-        public int getDuration() {
+        public String getDuration() {
             return duration;
         }
 
@@ -83,7 +83,7 @@ public class Files extends AbstractFiles {
     public static class Video extends Multimedia {
         private Scale scale;
 
-        public Video(String name, int size, String form, String description, int duration, Scale scale) {
+        public Video(String name, int size, String form, String description, String duration, Scale scale) {
             super(name, size, form, description, duration);
             this.scale = scale;
         }
