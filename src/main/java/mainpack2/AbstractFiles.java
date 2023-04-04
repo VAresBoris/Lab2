@@ -41,5 +41,9 @@ public abstract class AbstractFiles {
         this.form = form;
     }
 
-    public abstract void print();
+    public void print(){
+        System.out.printf("%s | %s%n", getName(), getSize() + getDetails());
+    }
+
+    protected abstract String getDetails();
 }

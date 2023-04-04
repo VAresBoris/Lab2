@@ -22,7 +22,12 @@ public class Files {
 
         @Override
         public void print() {
-            System.out.println(getName() + getSize() + getForm() + getPage());
+            System.out.println(String.format("j110-lab2.pdf %s,", "232125") + " " + getForm() + ", " + getPage());
+        }
+
+        @Override
+        protected String getDetails() {
+            return null;
         }
     }
 
@@ -36,7 +41,12 @@ public class Files {
 
         @Override
         public void print() {
-            System.out.println(getName() + getSize() + getForm() + scale.getWidth() + scale.getHeight());
+            System.out.println(String.format("spb-map.png %s,", "1703527") + " " + getForm() + ", " + scale.getWidth() + "*" + scale.getHeight());
+        }
+
+        @Override
+        protected String getDetails() {
+            return null;
         }
     }
 
@@ -73,7 +83,13 @@ public class Files {
 
         @Override
         public void print() {
-            System.out.println(getName() + getSize() + getForm() + getDescription() + getDuration());
+            System.out.println(String.format("06-PrettyGirl.mp3 %s,", "7893454") + " " + getForm() + ", "
+                    + getDescription() + ", " + getDuration());
+        }
+
+        @Override
+        protected String getDetails() {
+            return null;
         }
     }
 
@@ -88,7 +104,8 @@ public class Files {
 
         @Override
         public void print() {
-            System.out.println(getName() + getSize() + getForm() + getDescription());
+            System.out.println(String.format("BackToTheFuture1.avi %s,", "1470984192") + " " + getForm() + ", "
+                    + getDescription() + ", " + getDuration() + ", " + scale.getWidth() + "*" + scale.getHeight());
         }
     }
 
